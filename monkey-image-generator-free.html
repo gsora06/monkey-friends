@@ -255,6 +255,8 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .section-title {
@@ -267,6 +269,8 @@
 
         .control-group {
             margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
         }
 
         label {
@@ -288,6 +292,8 @@
             background: white;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
         select:hover {
@@ -1253,14 +1259,15 @@
             }
         }
 
-        async function loadMonkeyImage(skipLoadingCheck = false, autoClear = false) {
+        async function loadMonkeyImage(skipLoadingCheck = false, autoClear = false, forceType = null, forceDisplayName = null) {
             if (!skipLoadingCheck && isLoading) {
                 showToast('Please wait for current operation to complete', 'warning');
                 return;
             }
 
-            const monkeyType = document.getElementById('monkeyType').value;
-            const displayName = document.getElementById('monkeyType').selectedOptions[0].text;
+            // Use forced type if provided (for collections), otherwise read from dropdown
+            const monkeyType = forceType || document.getElementById('monkeyType').value;
+            const displayName = forceDisplayName || document.getElementById('monkeyType').selectedOptions[0].text;
 
             if (!skipLoadingCheck) {
                 // Auto-clear gallery when loading new images
@@ -1377,7 +1384,6 @@
             showLoading(true, `Loading ${collectionName}...`);
 
             const select = document.getElementById('monkeyType');
-            const originalSelection = select.value; // Save original selection
             let loaded = 0;
 
             try {
@@ -1385,15 +1391,18 @@
                     new Promise(async (resolve) => {
                         await new Promise(r => setTimeout(r, index * CONFIG.requestDelay));
 
+                        // Find the display name for this type
+                        let displayName = type;
                         for (let j = 0; j < select.options.length; j++) {
                             if (select.options[j].value === type) {
-                                select.selectedIndex = j;
+                                displayName = select.options[j].text;
                                 break;
                             }
                         }
 
                         try {
-                            const success = await loadMonkeyImage(true);
+                            // Pass the type directly without changing the dropdown
+                            const success = await loadMonkeyImage(true, false, type, displayName);
                             if (success) {
                                 loaded++;
                             }
@@ -1406,11 +1415,7 @@
                 );
 
                 await Promise.all(promises);
-
-                // Restore original dropdown selection
-                setTimeout(() => {
-                    select.value = originalSelection;
-                }, 100);
+                // Dropdown is never touched, so user's selection is preserved
             } catch (error) {
                 console.error('Error loading collection:', error);
                 showToast('Some images failed to load', 'warning');
@@ -1755,7 +1760,17 @@
             }
         }
 
-        document.getElementById('loadSingleBtn').addEventListener('click', () => loadMonkeyImage(false, true));
+        // Add change listener to dropdown for debugging
+        document.getElementById('monkeyType').addEventListener('change', function() {
+            console.log('Dropdown changed to:', this.value, this.selectedOptions[0].text);
+        });
+
+        document.getElementById('loadSingleBtn').addEventListener('click', () => {
+            const selectedType = document.getElementById('monkeyType').value;
+            const selectedName = document.getElementById('monkeyType').selectedOptions[0].text;
+            console.log('Loading monkey type:', selectedType, '(' + selectedName + ')');
+            loadMonkeyImage(false, true);
+        });
         document.getElementById('loadMultipleBtn').addEventListener('click', loadMultipleMonkeys);
         document.getElementById('loadCollectionBtn').addEventListener('click', loadMacaqueCollection);
         document.getElementById('clearGalleryBtn').addEventListener('click', clearGallery);
