@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐵 Monkey Friends Gallery 🐵</title>
+    <title>🐵 Prietenii Maimutelor 🐵</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -980,13 +980,13 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo">🐵 Monkey Friends</div>
+            <div class="logo">🐵 Maimuțele Vesele</div>
             <div class="stats">
                 <div class="stat-badge" id="galleryCount" role="status" aria-live="polite">
-                    📸 Gallery: 0
+                    📸 Poze: 0
                 </div>
                 <div class="stat-badge favorites" id="favoritesCount" role="status" aria-live="polite">
-                    ⭐ Favorites: 0
+                    ⭐ Favorite: 0
                 </div>
             </div>
         </div>
@@ -994,20 +994,20 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>🐵 Welcome to Monkey Friends! 🎉</h1>
-        <p>Discover amazing monkeys from around the world!</p>
+        <h1>🐵 Bine ai venit la Maimuțele Vesele! 🎉</h1>
+        <p>Descoperă cele mai haioase maimuțe din întreaga lume!</p>
     </section>
 
     <!-- Main Content -->
     <div class="container">
         <!-- Controls -->
         <div class="controls-section">
-            <h2 class="section-title">Choose Your Monkey! 🐒</h2>
+            <h2 class="section-title">Alege Maimuța Ta! 🐒</h2>
 
             <div class="control-group">
-                <label for="monkeyType">Pick a monkey species:</label>
-                <select id="monkeyType" aria-label="Select monkey species">
-                    <option value="monkey">🎲 Any Monkey (Random)</option>
+                <label for="monkeyType">Ce maimuță vrei să vezi?</label>
+                <select id="monkeyType" aria-label="Alege maimuța">
+                    <option value="monkey">🎲 Orice Maimuță (Surpriză)</option>
                     <option value="macaque">🐵 Macaque</option>
                     <option value="japanese macaque">❄️ Japanese Macaque (Snow Monkey)</option>
                     <option value="rhesus macaque">🐒 Rhesus Macaque</option>
@@ -1045,17 +1045,17 @@
             </div>
 
             <div class="button-grid">
-                <button id="loadSingleBtn" class="btn-primary" aria-label="Load one monkey image">
-                    🐵 Show Me a Monkey!
+                <button id="loadSingleBtn" class="btn-primary" aria-label="Încarcă o maimuță">
+                    🐵 Vreau o Maimuță!
                 </button>
-                <button id="loadMultipleBtn" class="btn-secondary" aria-label="Load six random monkey images">
-                    ✨ Show 6 Monkeys!
+                <button id="loadMultipleBtn" class="btn-secondary" aria-label="Încarcă șase maimuțe">
+                    ✨ Vreau 6 Maimuțe!
                 </button>
-                <button id="loadCollectionBtn" class="btn-secondary" aria-label="Load macaque collection">
-                    🎨 Macaque Party! (5)
+                <button id="loadCollectionBtn" class="btn-secondary" aria-label="Încarcă colecția de macaci">
+                    🎨 Petrecere cu Macaci! (5)
                 </button>
-                <button id="clearGalleryBtn" class="btn-danger" aria-label="Clear all images from gallery">
-                    🗑️ Clear All
+                <button id="clearGalleryBtn" class="btn-danger" aria-label="Șterge toate pozele">
+                    🗑️ Șterge Tot
                 </button>
             </div>
         </div>
@@ -1067,7 +1067,7 @@
                 <div class="spinner-dot"></div>
                 <div class="spinner-dot"></div>
             </div>
-            <div class="loading-text" id="loadingText">Loading monkey photos...</div>
+            <div class="loading-text" id="loadingText">Se încarcă maimuțele...</div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
@@ -1075,37 +1075,37 @@
 
         <!-- Gallery -->
         <section class="gallery-section">
-            <h2 class="gallery-title">🎪 Monkey Gallery</h2>
-            <div class="gallery" id="gallery" role="list" aria-label="Monkey photo gallery"></div>
+            <h2 class="gallery-title">🎪 Galeria Maimuțelor</h2>
+            <div class="gallery" id="gallery" role="list" aria-label="Galeria cu maimuțe"></div>
         </section>
 
         <!-- Memory Game -->
         <section class="game-section" style="position: relative; z-index: 10;">
             <div class="game-header">
-                <h2 class="game-title">🎮 Monkey Memory Game! 🐵</h2>
-                <p style="font-size: 1.2em; color: #666; margin-bottom: 10px;">Find the matching monkey pairs!</p>
+                <h2 class="game-title">🎮 Jocul Maimuțelor! 🐵</h2>
+                <p style="font-size: 1.2em; color: #666; margin-bottom: 10px;">Găsește perechile de maimuțe!</p>
                 <p style="font-size: 0.95em; color: #999; margin-bottom: 20px; font-style: italic;">
-                    💡 Tip: The game uses photos from your gallery above!
+                    💡 Sfat: Jocul folosește pozele de mai sus!
                 </p>
 
                 <div class="difficulty-selector">
                     <button class="difficulty-btn active" data-level="easy">
-                        🌟 Easy (4 cards)
+                        🌟 Ușor (4 cărți)
                     </button>
                     <button class="difficulty-btn" data-level="medium">
-                        ⭐ Medium (6 cards)
+                        ⭐ Mediu (6 cărți)
                     </button>
                     <button class="difficulty-btn" data-level="hard">
-                        🏆 Hard (12 cards)
+                        🏆 Greu (12 cărți)
                     </button>
                 </div>
 
                 <div class="game-stats">
                     <div class="game-stat moves">
-                        👆 Moves: <span id="moveCount">0</span>
+                        👆 Mișcări: <span id="moveCount">0</span>
                     </div>
                     <div class="game-stat matches">
-                        ✨ Matches: <span id="matchCount">0</span>
+                        ✨ Perechi: <span id="matchCount">0</span>
                     </div>
                 </div>
             </div>
@@ -1121,15 +1121,15 @@
 
             <div class="game-controls">
                 <button class="game-btn" id="newGameBtn">
-                    🔄 New Game
+                    🔄 Joc Nou
                 </button>
             </div>
         </section>
 
         <!-- Favorites -->
         <section class="favorites-section" id="favoritesSection" style="display: none;">
-            <h2 class="gallery-title">⭐ Your Favorite Monkeys</h2>
-            <div class="gallery" id="favoritesGallery" role="list" aria-label="Favorite monkey photos"></div>
+            <h2 class="gallery-title">⭐ Maimuțele Tale Favorite</h2>
+            <div class="gallery" id="favoritesGallery" role="list" aria-label="Maimuțe favorite"></div>
         </section>
     </div>
 
@@ -1423,8 +1423,8 @@
             favoriteCount = favorites.size;
             imageCount = galleryImages;
 
-            document.getElementById('galleryCount').textContent = `📸 Gallery: ${imageCount}`;
-            document.getElementById('favoritesCount').textContent = `⭐ Favorites: ${favoriteCount}`;
+            document.getElementById('galleryCount').textContent = `📸 Poze: ${imageCount}`;
+            document.getElementById('favoritesCount').textContent = `⭐ Favorite: ${favoriteCount}`;
 
             const favSection = document.getElementById('favoritesSection');
             if (favoriteCount > 0) {
@@ -1485,7 +1485,7 @@
 
         async function loadMonkeyImage(skipLoadingCheck = false, autoClear = false, forceType = null, forceDisplayName = null) {
             if (!skipLoadingCheck && isLoading) {
-                showToast('Please wait for current operation to complete', 'warning');
+                showToast('Așteaptă puțin, maimuțele se încarcă!', 'warning');
                 return;
             }
 
@@ -1597,7 +1597,7 @@
 
         async function loadMultipleImages(types, collectionName) {
             if (isLoading) {
-                showToast('Please wait for current operation to complete', 'warning');
+                showToast('Așteaptă puțin, maimuțele se încarcă!', 'warning');
                 return;
             }
 
@@ -1755,10 +1755,10 @@
         function toggleFavorite(imageId) {
             if (favorites.has(imageId)) {
                 favorites.delete(imageId);
-                showToast('💔 Removed from favorites', 'success');
+                showToast('💔 Scoasă din favorite', 'success');
             } else {
                 favorites.add(imageId);
-                showToast('⭐ Added to favorites!', 'success');
+                showToast('⭐ Adăugată la favorite!', 'success');
             }
 
             saveFavorites();
@@ -1875,10 +1875,10 @@
                 document.body.removeChild(link);
 
                 window.URL.revokeObjectURL(blobUrl);
-                showToast('⬇️ Download started!', 'success');
+                showToast('⬇️ Se descarcă maimuța!', 'success');
             } catch (error) {
                 console.error('Download failed:', error);
-                showToast('Download failed. Please try again.', 'error');
+                showToast('Ups! Nu s-a putut descărca. Mai încearcă!', 'error');
             }
         }
 
@@ -1892,10 +1892,10 @@
             try {
                 if (navigator.share) {
                     await navigator.share(shareData);
-                    showToast('✅ Shared successfully!', 'success');
+                    showToast('✅ Super! Ai trimis maimuța!', 'success');
                 } else {
                     await navigator.clipboard.writeText(imageData.sourceUrl);
-                    showToast('📋 Link copied to clipboard!', 'success');
+                    showToast('📋 Link-ul a fost copiat!', 'success');
                 }
             } catch (error) {
                 if (error.name !== 'AbortError') {
@@ -1927,7 +1927,7 @@
                 updateFavoritesGallery();
             }
 
-            showToast('🗑️ Image deleted', 'success');
+            showToast('🗑️ Maimuța a fost ștearsă', 'success');
         }
 
         function clearGalleryWithoutConfirm() {
@@ -1941,13 +1941,13 @@
 
         function clearGallery() {
             if (imageCount === 0) {
-                showToast('Gallery is already empty', 'warning');
+                showToast('Nu mai sunt maimuțe de șters!', 'warning');
                 return;
             }
 
-            if (confirm(`Clear all ${imageCount} monkey photos?`)) {
+            if (confirm(`Vrei să ștergi toate cele ${imageCount} maimuțe?`)) {
                 clearGalleryWithoutConfirm();
-                showToast('✨ Gallery cleared', 'success');
+                showToast('✨ Gata! Toate maimuțele au plecat!', 'success');
             }
         }
 
