@@ -1,0 +1,37 @@
+# Claude Code Bedrock – local bearer token (never commit)
+claude-bedrock-env.local.sh
+
+# Mac system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.cursor/
+.vscode/
+.idea/
+
+# Work files (not needed for the monkey site)
+*-AEM-Analysis/
+WAF-Configuration-Report-*.html
+adobe-max-analyst-coverage-october-2025.md
+aem-invalid-url-template-access-issue.md
+aem-multipart-form-40-field-limit-issue.md
+azure-outage-october-29-2025.md
+icinga-os-migration-chg2752583.md
+pggm-test65-cloud-scan-failure-analysis.md
+pggm-test65c-ssl-error-analysis.md
+transpiler-fetch-repositories-failure-troubleshooting.md
+*.py
+claude-bedrock-env.sh
+clifford-waf-author-restriction.py
+aws-waf-export.py
+token_easy_MCP
+waf-export-*.json
+
+# Other monkey versions (keeping only the main one)
+monkey-image-generator.html
+
+# Environment files
+.env
+.env.local
