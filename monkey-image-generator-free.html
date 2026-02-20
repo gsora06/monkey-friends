@@ -511,7 +511,7 @@
 
         .image-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             display: block;
             cursor: pointer;
@@ -523,43 +523,43 @@
         }
 
         .image-info {
-            padding: 12px;
+            padding: 10px;
             text-align: center;
         }
 
         .image-info h3 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #333;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .image-info .fun-fact {
             color: #666;
-            font-size: 0.85em;
+            font-size: 0.8em;
             font-style: italic;
-            margin: 5px 0;
-            line-height: 1.4;
+            margin: 4px 0;
+            line-height: 1.3;
         }
 
         .image-actions {
             display: flex;
-            gap: 8px;
-            padding: 10px;
+            gap: 5px;
+            padding: 8px;
             background: #f8f9fa;
-            border-top: 3px solid #eee;
+            border-top: 2px solid #eee;
         }
 
         .action-btn {
             flex: 1;
-            padding: 8px 12px;
+            padding: 6px 8px;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
+            border-radius: 8px;
+            font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .action-btn.favorite {
@@ -824,16 +824,40 @@
             <div class="control-group">
                 <label for="monkeyType">Pick a monkey species:</label>
                 <select id="monkeyType" aria-label="Select monkey species">
+                    <option value="monkey">🎲 Any Monkey (Random)</option>
                     <option value="macaque">🐵 Macaque</option>
                     <option value="japanese macaque">❄️ Japanese Macaque (Snow Monkey)</option>
                     <option value="rhesus macaque">🐒 Rhesus Macaque</option>
+                    <option value="barbary macaque">🏔️ Barbary Macaque</option>
                     <option value="capuchin monkey">🎩 Capuchin Monkey</option>
+                    <option value="white faced capuchin">⚪ White-Faced Capuchin</option>
                     <option value="spider monkey">🕷️ Spider Monkey</option>
                     <option value="howler monkey">📢 Howler Monkey</option>
+                    <option value="red howler monkey">🔴 Red Howler Monkey</option>
                     <option value="marmoset">🐭 Marmoset</option>
+                    <option value="pygmy marmoset">🌸 Pygmy Marmoset</option>
                     <option value="tamarin">🌟 Golden Tamarin</option>
+                    <option value="golden lion tamarin">🦁 Golden Lion Tamarin</option>
+                    <option value="emperor tamarin">👑 Emperor Tamarin</option>
                     <option value="proboscis monkey">👃 Proboscis Monkey</option>
-                    <option value="monkey">🎲 Any Monkey (Random)</option>
+                    <option value="squirrel monkey">🐿️ Squirrel Monkey</option>
+                    <option value="vervet monkey">🌿 Vervet Monkey</option>
+                    <option value="baboon">💪 Baboon</option>
+                    <option value="mandrill">🎨 Mandrill</option>
+                    <option value="colobus monkey">⬛ Colobus Monkey</option>
+                    <option value="black and white colobus">🖤 Black & White Colobus</option>
+                    <option value="langur">🏛️ Langur</option>
+                    <option value="golden snub nosed monkey">🥇 Golden Snub-Nosed Monkey</option>
+                    <option value="gelada">❤️ Gelada (Bleeding Heart Monkey)</option>
+                    <option value="cotton top tamarin">☁️ Cotton-Top Tamarin</option>
+                    <option value="night monkey">🌙 Night Monkey (Owl Monkey)</option>
+                    <option value="titi monkey">💕 Titi Monkey</option>
+                    <option value="woolly monkey">🧶 Woolly Monkey</option>
+                    <option value="uakari">🔴 Uakari (Bald Monkey)</option>
+                    <option value="saki monkey">🎭 Saki Monkey</option>
+                    <option value="patas monkey">🏃 Patas Monkey</option>
+                    <option value="allen swamp monkey">🌊 Allen's Swamp Monkey</option>
+                    <option value="guenon">🌈 Guenon</option>
                 </select>
             </div>
 
@@ -919,11 +943,23 @@
                 'They live in large family groups',
                 'They help scientists learn about health'
             ],
+            'barbary macaque': [
+                'Barbary macaques live in the mountains of Morocco',
+                'They are the only wild monkeys in Europe!',
+                'Males help take care of babies',
+                'They love to play in the snow'
+            ],
             'capuchin monkey': [
                 'Capuchins are one of the smartest monkeys',
                 'They use tools to crack nuts',
                 'They have very expressive faces',
                 'Baby capuchins cling to their mothers'
+            ],
+            'white faced capuchin': [
+                'White-faced capuchins have distinctive white fur',
+                'They are very social and playful',
+                'They can live up to 54 years!',
+                'They love to swim and play in water'
             ],
             'spider monkey': [
                 'Spider monkeys have very long arms',
@@ -937,11 +973,23 @@
                 'They howl to talk to other groups',
                 'They eat mostly leaves and fruit'
             ],
+            'red howler monkey': [
+                'Red howlers have beautiful reddish fur',
+                'Males howl to protect their territory',
+                'They spend most of their time in trees',
+                'They can live up to 20 years'
+            ],
             'marmoset': [
                 'Marmosets are tiny - they fit in your hand!',
                 'They have special claws for climbing',
                 'Twin babies are common for marmosets',
                 'They communicate with high-pitched calls'
+            ],
+            'pygmy marmoset': [
+                'Pygmy marmosets are the smallest monkeys!',
+                'They weigh less than an apple',
+                'They can jump 15 feet between trees',
+                'They love to eat tree sap'
             ],
             'tamarin': [
                 'Golden tamarins have beautiful orange fur',
@@ -949,11 +997,131 @@
                 'They live in the rainforest',
                 'Dads help take care of the babies'
             ],
+            'golden lion tamarin': [
+                'Golden lion tamarins are bright orange!',
+                'They have beautiful lion-like manes',
+                'They are endangered and very special',
+                'They live only in Brazil'
+            ],
+            'emperor tamarin': [
+                'Emperor tamarins have amazing mustaches!',
+                'Their mustache looks like an emperor',
+                'They are very small and cute',
+                'They live in family groups'
+            ],
             'proboscis monkey': [
                 'Male proboscis monkeys have very big noses!',
                 'They are excellent swimmers',
                 'They live near rivers in Borneo',
                 'Their big nose helps them make loud calls'
+            ],
+            'squirrel monkey': [
+                'Squirrel monkeys are small and super active!',
+                'They live in groups of up to 500 monkeys',
+                'They have yellow and gray fur',
+                'Baby squirrel monkeys ride on their mothers'
+            ],
+            'vervet monkey': [
+                'Vervet monkeys have black faces and hands',
+                'They make different alarm calls for different dangers',
+                'They live in African savannas',
+                'They are very intelligent'
+            ],
+            'baboon': [
+                'Baboons are large and strong monkeys',
+                'They walk on all four legs like dogs',
+                'They live in big family groups called troops',
+                'Baboons are very smart and curious'
+            ],
+            'mandrill': [
+                'Mandrills are the most colorful monkeys!',
+                'Males have bright blue and red faces',
+                'They are the largest monkeys in the world',
+                'They live in African rainforests'
+            ],
+            'colobus monkey': [
+                'Colobus monkeys have beautiful long fur',
+                'They can jump up to 50 feet between trees!',
+                'Baby colobus are born all white',
+                'They eat mostly leaves'
+            ],
+            'black and white colobus': [
+                'Black and white colobus look like little skunks!',
+                'They have long flowing white tails',
+                'They live in African forests',
+                'Babies hold on tight to their mothers'
+            ],
+            'langur': [
+                'Langurs have long tails and graceful bodies',
+                'They are sacred in many cultures',
+                'They can leap great distances',
+                'Baby langurs are bright orange!'
+            ],
+            'golden snub nosed monkey': [
+                'Golden snub-nosed monkeys live in snowy mountains',
+                'They have beautiful golden-orange fur',
+                'They have tiny upturned noses',
+                'They live in China at high altitudes'
+            ],
+            'gelada': [
+                'Geladas have heart-shaped red chests!',
+                'They are called "bleeding heart monkeys"',
+                'They live only in Ethiopian highlands',
+                'They are the only grass-eating monkeys'
+            ],
+            'cotton top tamarin': [
+                'Cotton-top tamarins have fluffy white hair!',
+                'Their hair looks like cotton candy',
+                'They are very small and endangered',
+                'They live in Colombia'
+            ],
+            'night monkey': [
+                'Night monkeys are the only nocturnal monkeys!',
+                'They have huge eyes for seeing at night',
+                'They sleep during the day',
+                'Also called owl monkeys'
+            ],
+            'titi monkey': [
+                'Titi monkeys are very romantic!',
+                'Mated pairs sit with tails intertwined',
+                'They mate for life',
+                'They sing duets to each other'
+            ],
+            'woolly monkey': [
+                'Woolly monkeys have thick, soft fur',
+                'Their fur feels like wool',
+                'They use their tail like a fifth hand',
+                'They live in Amazon rainforests'
+            ],
+            'uakari': [
+                'Uakaris have bright red bald heads!',
+                'The redder their face, the healthier they are',
+                'They live in flooded Amazon forests',
+                'They are excellent swimmers'
+            ],
+            'saki monkey': [
+                'Saki monkeys have long, shaggy fur',
+                'They can jump up to 30 feet!',
+                'Males often have black fur, females brown',
+                'They eat mostly fruit and seeds'
+            ],
+            'patas monkey': [
+                'Patas monkeys are the fastest primates!',
+                'They can run up to 34 mph',
+                'They are called "military monkeys"',
+                'They live in African grasslands'
+            ],
+            'allen swamp monkey': [
+                'Allen\'s swamp monkeys love water!',
+                'They have webbed feet for swimming',
+                'They live in swampy forests',
+                'They are excellent swimmers'
+            ],
+            'guenon': [
+                'Guenons are small, colorful monkeys',
+                'There are many different species',
+                'They have beautiful facial markings',
+                'They live in African forests'
             ],
             'monkey': [
                 'Monkeys love bananas and other fruits!',
@@ -1209,6 +1377,7 @@
             showLoading(true, `Loading ${collectionName}...`);
 
             const select = document.getElementById('monkeyType');
+            const originalSelection = select.value; // Save original selection
             let loaded = 0;
 
             try {
@@ -1237,6 +1406,11 @@
                 );
 
                 await Promise.all(promises);
+
+                // Restore original dropdown selection
+                setTimeout(() => {
+                    select.value = originalSelection;
+                }, 100);
             } catch (error) {
                 console.error('Error loading collection:', error);
                 showToast('Some images failed to load', 'warning');
@@ -1291,8 +1465,8 @@
                 <div class="image-info">
                     <h3>${imageData.displayName}</h3>
                     <div class="fun-fact">${fact}</div>
-                    <div style="font-size: 0.75em; color: #999; margin-top: 5px;">
-                        📸 Photo by ${imageData.photographer}
+                    <div style="font-size: 0.7em; color: #aaa; margin-top: 3px;">
+                        📸 ${imageData.photographer}
                     </div>
                 </div>
                 <div class="image-actions">
@@ -1411,8 +1585,8 @@
                 <div class="image-info">
                     <h3>${imageData.displayName}</h3>
                     <div class="fun-fact">${fact}</div>
-                    <div style="font-size: 0.75em; color: #999; margin-top: 5px;">
-                        📸 Photo by ${imageData.photographer}
+                    <div style="font-size: 0.7em; color: #aaa; margin-top: 3px;">
+                        📸 ${imageData.photographer}
                     </div>
                 </div>
                 <div class="image-actions">
@@ -1614,7 +1788,7 @@
 
             setTimeout(() => {
                 document.getElementById('monkeyType').value = 'japanese macaque';
-                loadMonkeyImage();
+                loadMonkeyImage(false, false); // Don't auto-clear on initial load
             }, 500);
         });
     </script>
