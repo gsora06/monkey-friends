@@ -467,8 +467,8 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .image-card {
@@ -511,7 +511,7 @@
 
         .image-card img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
             display: block;
             cursor: pointer;
@@ -523,39 +523,39 @@
         }
 
         .image-info {
-            padding: 20px;
+            padding: 12px;
             text-align: center;
         }
 
         .image-info h3 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .image-info .fun-fact {
             color: #666;
-            font-size: 0.95em;
+            font-size: 0.85em;
             font-style: italic;
-            margin: 10px 0;
-            line-height: 1.5;
+            margin: 5px 0;
+            line-height: 1.4;
         }
 
         .image-actions {
             display: flex;
-            gap: 10px;
-            padding: 15px;
+            gap: 8px;
+            padding: 10px;
             background: #f8f9fa;
             border-top: 3px solid #eee;
         }
 
         .action-btn {
             flex: 1;
-            padding: 12px 16px;
+            padding: 8px 12px;
             border: none;
-            border-radius: 12px;
-            font-size: 1.3em;
+            border-radius: 10px;
+            font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
@@ -764,6 +764,12 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -1079,7 +1085,7 @@
             }
         }
 
-        async function loadMonkeyImage(skipLoadingCheck = false) {
+        async function loadMonkeyImage(skipLoadingCheck = false, autoClear = false) {
             if (!skipLoadingCheck && isLoading) {
                 showToast('Please wait for current operation to complete', 'warning');
                 return;
@@ -1089,6 +1095,10 @@
             const displayName = document.getElementById('monkeyType').selectedOptions[0].text;
 
             if (!skipLoadingCheck) {
+                // Auto-clear gallery when loading new images
+                if (autoClear) {
+                    clearGalleryWithoutConfirm();
+                }
                 isLoading = true;
                 showLoading(true);
             }
@@ -1192,6 +1202,9 @@
                 return;
             }
 
+            // Auto-clear gallery when loading new collection
+            clearGalleryWithoutConfirm();
+
             isLoading = true;
             showLoading(true, `Loading ${collectionName}...`);
 
@@ -1278,7 +1291,7 @@
                 <div class="image-info">
                     <h3>${imageData.displayName}</h3>
                     <div class="fun-fact">${fact}</div>
-                    <div style="font-size: 0.85em; color: #999; margin-top: 8px;">
+                    <div style="font-size: 0.75em; color: #999; margin-top: 5px;">
                         📸 Photo by ${imageData.photographer}
                     </div>
                 </div>
@@ -1398,7 +1411,7 @@
                 <div class="image-info">
                     <h3>${imageData.displayName}</h3>
                     <div class="fun-fact">${fact}</div>
-                    <div style="font-size: 0.85em; color: #999; margin-top: 8px;">
+                    <div style="font-size: 0.75em; color: #999; margin-top: 5px;">
                         📸 Photo by ${imageData.photographer}
                     </div>
                 </div>
@@ -1514,6 +1527,15 @@
             showToast('🗑️ Image deleted', 'success');
         }
 
+        function clearGalleryWithoutConfirm() {
+            if (imageCount > 0) {
+                document.getElementById('gallery').innerHTML = '';
+                imageCount = 0;
+                usedImageIds.clear();
+                updateCounter();
+            }
+        }
+
         function clearGallery() {
             if (imageCount === 0) {
                 showToast('Gallery is already empty', 'warning');
@@ -1521,10 +1543,7 @@
             }
 
             if (confirm(`Clear all ${imageCount} monkey photos?`)) {
-                document.getElementById('gallery').innerHTML = '';
-                imageCount = 0;
-                usedImageIds.clear();
-                updateCounter();
+                clearGalleryWithoutConfirm();
                 showToast('✨ Gallery cleared', 'success');
             }
         }
@@ -1562,7 +1581,7 @@
             }
         }
 
-        document.getElementById('loadSingleBtn').addEventListener('click', loadMonkeyImage);
+        document.getElementById('loadSingleBtn').addEventListener('click', () => loadMonkeyImage(false, true));
         document.getElementById('loadMultipleBtn').addEventListener('click', loadMultipleMonkeys);
         document.getElementById('loadCollectionBtn').addEventListener('click', loadMacaqueCollection);
         document.getElementById('clearGalleryBtn').addEventListener('click', clearGallery);
