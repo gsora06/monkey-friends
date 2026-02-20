@@ -756,6 +756,240 @@
             outline-offset: 4px;
         }
 
+        /* Memory Game Styles */
+        .game-section {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin: 60px 0;
+            border: 5px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .game-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 5px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE066, #5C7AFF);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .game-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .game-stat {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3em;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .game-stat.moves {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            color: white;
+        }
+
+        .game-stat.matches {
+            background: linear-gradient(135deg, #5C7AFF, #7B94FF);
+            color: white;
+        }
+
+        .difficulty-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            font-family: 'Fredoka', sans-serif;
+            padding: 12px 30px;
+            border-radius: 15px;
+            border: 3px solid #ddd;
+            background: white;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn.active {
+            background: linear-gradient(135deg, #FFE066, #FFD700);
+            border-color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        .difficulty-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            perspective: 1000px;
+        }
+
+        .game-board.easy {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 350px;
+        }
+
+        .game-board.medium {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 500px;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.matched {
+            animation: matchPulse 0.6s ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes matchPulse {
+            0%, 100% { transform: rotateY(180deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.2); }
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #5C7AFF, #7B94FF);
+            font-size: 4em;
+        }
+
+        .card-back {
+            background: white;
+            transform: rotateY(180deg);
+            overflow: hidden;
+            border: 5px solid;
+        }
+
+        .card-back.red {
+            border-color: #FF6B6B;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+        }
+
+        .card-back.yellow {
+            border-color: #FFE066;
+            box-shadow: 0 0 15px rgba(255, 224, 102, 0.5);
+        }
+
+        .card-back.blue {
+            border-color: #5C7AFF;
+            box-shadow: 0 0 15px rgba(92, 122, 255, 0.5);
+        }
+
+        .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-controls {
+            text-align: center;
+        }
+
+        .game-btn {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 20px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .game-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .win-message {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #FFE066, #FFD700);
+            border-radius: 25px;
+            margin-bottom: 20px;
+            display: none;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        .win-message.show {
+            display: block;
+        }
+
+        .win-message h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .win-message p {
+            font-size: 1.3em;
+            color: #666;
+            font-weight: 600;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -773,11 +1007,31 @@
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
+
+            .game-board {
+                gap: 10px;
+            }
+
+            .game-board.easy {
+                max-width: 280px;
+            }
+
+            .game-board.medium {
+                max-width: 400px;
+            }
         }
 
         @media (max-width: 480px) {
             .gallery {
                 grid-template-columns: 1fr;
+            }
+
+            .game-board.easy {
+                max-width: 250px;
+            }
+
+            .card-front {
+                font-size: 3em;
             }
         }
     </style>
@@ -895,6 +1149,53 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
         </div>
+
+        <!-- Memory Game -->
+        <section class="game-section" style="position: relative; z-index: 10;">
+            <div class="game-header">
+                <h2 class="game-title">🎮 Monkey Memory Game! 🐵</h2>
+                <p style="font-size: 1.2em; color: #666; margin-bottom: 10px;">Find the matching monkey pairs!</p>
+                <p style="font-size: 0.95em; color: #999; margin-bottom: 20px; font-style: italic;">
+                    💡 Tip: Load some monkeys above first for faster games!
+                </p>
+
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn active" data-level="easy">
+                        🌟 Easy (4 cards)
+                    </button>
+                    <button class="difficulty-btn" data-level="medium">
+                        ⭐ Medium (6 cards)
+                    </button>
+                    <button class="difficulty-btn" data-level="hard">
+                        🏆 Hard (12 cards)
+                    </button>
+                </div>
+
+                <div class="game-stats">
+                    <div class="game-stat moves">
+                        👆 Moves: <span id="moveCount">0</span>
+                    </div>
+                    <div class="game-stat matches">
+                        ✨ Matches: <span id="matchCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="win-message" id="winMessage">
+                <h3>🎉 Amazing! You found them all! 🎉</h3>
+                <p>You did it in <span id="finalMoves">0</span> moves! Great job! 🌟</p>
+            </div>
+
+            <div class="game-board easy" id="gameBoard">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+
+            <div class="game-controls">
+                <button class="game-btn" id="newGameBtn">
+                    🔄 New Game
+                </button>
+            </div>
+        </section>
 
         <!-- Gallery -->
         <section class="gallery-section">
@@ -1797,6 +2098,256 @@
             }
         });
 
+        // ===== MEMORY GAME CODE =====
+
+        const gameState = {
+            cards: [],
+            flippedCards: [],
+            matchedPairs: 0,
+            moves: 0,
+            difficulty: 'easy',
+            canFlip: true,
+            gameImages: []
+        };
+
+        const cardColors = ['red', 'yellow', 'blue'];
+
+        function initMemoryGame() {
+            const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+            difficultyBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    difficultyBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    gameState.difficulty = btn.dataset.level;
+                    startNewGame();
+                });
+            });
+
+            document.getElementById('newGameBtn').addEventListener('click', startNewGame);
+            startNewGame();
+        }
+
+        async function loadGameImages(numPairs) {
+            // Load monkey images for the game
+            gameState.gameImages = [];
+
+            // First, try to use images from the image cache if available
+            const cachedImages = Array.from(imageCache.values());
+
+            if (cachedImages.length >= numPairs) {
+                // Use cached monkey images
+                const selectedImages = shuffleArray(cachedImages).slice(0, numPairs);
+                gameState.gameImages = selectedImages.map(img => ({
+                    url: img.url,
+                    type: img.monkeyType
+                }));
+                return;
+            }
+
+            // If not enough cached images, load new monkey photos
+            const monkeyTypes = ['monkey', 'macaque', 'capuchin', 'tamarin', 'baboon', 'marmoset'];
+
+            for (let i = 0; i < numPairs; i++) {
+                const monkeyType = monkeyTypes[i % monkeyTypes.length];
+
+                try {
+                    // Try Pixabay first (more reliable)
+                    const pixabayUrl = `https://pixabay.com/api/?key=${CONFIG.pixabayKey}&q=${encodeURIComponent(monkeyType)}&image_type=photo&per_page=50`;
+                    const response = await fetch(pixabayUrl);
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.hits && data.hits.length > 0) {
+                            const randomIndex = Math.floor(Math.random() * Math.min(data.hits.length, 10));
+                            const photo = data.hits[randomIndex];
+                            gameState.gameImages.push({
+                                url: photo.webformatURL,
+                                type: monkeyType
+                            });
+                            continue;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to load from Pixabay:', error);
+                }
+
+                // Fallback: try Unsplash
+                try {
+                    const unsplashUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(monkeyType)}&page=1&per_page=20&client_id=${CONFIG.unsplashKey}`;
+                    const response = await fetch(unsplashUrl);
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.results && data.results.length > 0) {
+                            const randomIndex = Math.floor(Math.random() * Math.min(data.results.length, 10));
+                            const photo = data.results[randomIndex];
+                            gameState.gameImages.push({
+                                url: photo.urls.small,
+                                type: monkeyType
+                            });
+                            continue;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to load from Unsplash:', error);
+                }
+
+                // Last resort: use a generic monkey search with different query
+                gameState.gameImages.push({
+                    url: `https://source.unsplash.com/300x300/?monkey,primate,${Date.now() + i}`,
+                    type: monkeyType
+                });
+            }
+        }
+
+        async function startNewGame() {
+            gameState.flippedCards = [];
+            gameState.matchedPairs = 0;
+            gameState.moves = 0;
+            gameState.canFlip = true;
+
+            document.getElementById('moveCount').textContent = '0';
+            document.getElementById('matchCount').textContent = '0';
+            document.getElementById('winMessage').classList.remove('show');
+
+            const numPairs = gameState.difficulty === 'easy' ? 2 :
+                           gameState.difficulty === 'medium' ? 3 : 6;
+
+            // Show loading indicator
+            const cachedCount = imageCache.size;
+            const loadingMessage = cachedCount >= numPairs
+                ? 'Getting your monkey photos... 🐵'
+                : 'Loading fresh monkey photos... 🐵';
+            document.getElementById('gameBoard').innerHTML = `<div style="text-align: center; padding: 40px; font-size: 1.3em; color: #666;">${loadingMessage}<div style="margin-top: 20px;" class="spinner-container"><div class="spinner-dot"></div><div class="spinner-dot"></div><div class="spinner-dot"></div></div></div>`;
+
+            await loadGameImages(numPairs);
+            createGameBoard(numPairs);
+        }
+
+        function createGameBoard(numPairs) {
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.className = `game-board ${gameState.difficulty}`;
+            gameBoard.innerHTML = '';
+
+            // Create pairs using loaded images
+            const imagePairs = [];
+            gameState.gameImages.forEach((img, idx) => {
+                imagePairs.push({ imageIndex: idx, imageUrl: img.url });
+                imagePairs.push({ imageIndex: idx, imageUrl: img.url });
+            });
+
+            gameState.cards = shuffleArray(imagePairs).map((imgData, index) => ({
+                id: index,
+                imageIndex: imgData.imageIndex,
+                imageUrl: imgData.imageUrl,
+                color: cardColors[imgData.imageIndex % cardColors.length],
+                isFlipped: false,
+                isMatched: false
+            }));
+
+            // Render cards
+            gameState.cards.forEach(card => {
+                const cardElement = createCardElement(card);
+                gameBoard.appendChild(cardElement);
+            });
+        }
+
+        function createCardElement(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'memory-card';
+            cardDiv.dataset.cardId = card.id;
+
+            cardDiv.innerHTML = `
+                <div class="card-face card-front">
+                    🐵
+                </div>
+                <div class="card-face card-back ${card.color}">
+                    <img src="${card.imageUrl}" alt="Monkey" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            `;
+
+            cardDiv.addEventListener('click', () => handleCardClick(card.id));
+
+            return cardDiv;
+        }
+
+        function handleCardClick(cardId) {
+            if (!gameState.canFlip) return;
+
+            const card = gameState.cards.find(c => c.id === cardId);
+            if (!card || card.isFlipped || card.isMatched) return;
+
+            // Flip the card
+            card.isFlipped = true;
+            const cardElement = document.querySelector(`[data-card-id="${cardId}"]`);
+            cardElement.classList.add('flipped');
+            gameState.flippedCards.push(card);
+
+            // Check for match when 2 cards are flipped
+            if (gameState.flippedCards.length === 2) {
+                gameState.moves++;
+                document.getElementById('moveCount').textContent = gameState.moves;
+                gameState.canFlip = false;
+
+                setTimeout(checkForMatch, 800);
+            }
+        }
+
+        function checkForMatch() {
+            const [card1, card2] = gameState.flippedCards;
+
+            if (card1.imageIndex === card2.imageIndex) {
+                // Match found!
+                card1.isMatched = true;
+                card2.isMatched = true;
+
+                const card1Element = document.querySelector(`[data-card-id="${card1.id}"]`);
+                const card2Element = document.querySelector(`[data-card-id="${card2.id}"]`);
+                card1Element.classList.add('matched');
+                card2Element.classList.add('matched');
+
+                gameState.matchedPairs++;
+                document.getElementById('matchCount').textContent = gameState.matchedPairs;
+
+                // Check for win
+                const totalPairs = gameState.cards.length / 2;
+                if (gameState.matchedPairs === totalPairs) {
+                    setTimeout(showWinMessage, 500);
+                }
+
+                gameState.flippedCards = [];
+                gameState.canFlip = true;
+            } else {
+                // No match - flip back
+                setTimeout(() => {
+                    card1.isFlipped = false;
+                    card2.isFlipped = false;
+
+                    const card1Element = document.querySelector(`[data-card-id="${card1.id}"]`);
+                    const card2Element = document.querySelector(`[data-card-id="${card2.id}"]`);
+                    card1Element.classList.remove('flipped');
+                    card2Element.classList.remove('flipped');
+
+                    gameState.flippedCards = [];
+                    gameState.canFlip = true;
+                }, 600);
+            }
+        }
+
+        function showWinMessage() {
+            document.getElementById('finalMoves').textContent = gameState.moves;
+            document.getElementById('winMessage').classList.add('show');
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
         window.addEventListener('load', function() {
             loadFavorites();
             updateFavoritesGallery();
@@ -1805,6 +2356,11 @@
                 document.getElementById('monkeyType').value = 'japanese macaque';
                 loadMonkeyImage(false, false); // Don't auto-clear on initial load
             }, 500);
+
+            // Initialize memory game
+            console.log('Initializing memory game...');
+            initMemoryGame();
+            console.log('Memory game initialized!');
         });
     </script>
 </body>
