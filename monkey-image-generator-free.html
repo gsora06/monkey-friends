@@ -168,71 +168,6 @@
             padding: 0 30px 60px;
         }
 
-        /* Info Cards */
-        .info-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .info-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            border: 4px solid;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-        }
-
-        .info-card.blue {
-            border-color: #5C7AFF;
-        }
-
-        .info-card.blue::before {
-            background: linear-gradient(90deg, #5C7AFF, #7B94FF);
-        }
-
-        .info-card.yellow {
-            border-color: #FFE066;
-        }
-
-        .info-card.yellow::before {
-            background: linear-gradient(90deg, #FFE066, #FFD700);
-        }
-
-        .info-card h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .info-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .info-card a {
-            color: #5C7AFF;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .info-card a:hover {
-            text-decoration: underline;
-        }
-
         /* Controls Section */
         .controls-section {
             background: white;
@@ -1065,18 +1000,6 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Info Cards -->
-        <div class="info-cards">
-            <div class="info-card blue">
-                <h3>🎨 Free Photos!</h3>
-                <p>All monkey photos come from Unsplash and Pexels - beautiful, professional photography at no cost!</p>
-            </div>
-            <div class="info-card yellow">
-                <h3>⚙️ Setup Required</h3>
-                <p>To see real monkey photos, get free API keys from <a href="https://unsplash.com/developers" target="_blank">Unsplash</a> and <a href="https://pixabay.com/api/docs/" target="_blank">Pixabay</a>. Update the CONFIG in the code!</p>
-            </div>
-        </div>
-
         <!-- Controls -->
         <div class="controls-section">
             <h2 class="section-title">Choose Your Monkey! 🐒</h2>
